@@ -1,5 +1,7 @@
 import 'package:admin_panel/src/app/views/home_view.dart';
+import 'package:admin_panel/src/Components/play_list_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 Future<void> main(List<String> args) async {
   runApp(const App());
@@ -10,9 +12,16 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeView(),
-      debugShowCheckedModeBanner: false,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => PlaylistProvider(),
+        )
+      ],
+      child: const MaterialApp(
+        home: HomeView(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }

@@ -1,4 +1,5 @@
-import 'package:admin_panel/src/app/views/home_view_deteil/youtube_video.dart';
+import 'package:admin_panel/src/app/views/home_view_deteil/play_list_video/play_list_video.dart';
+import 'package:admin_panel/src/app/views/home_view_deteil/youtube_video/youtube_video.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,9 +8,17 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Column(
+      backgroundColor: Colors.amber,
+      body: Row(
         children: [
-          YoutubeVideo(),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                YoutubeVideo(),
+              ],
+            ),
+          ),
+          PlayListVideo(),
         ],
       ),
     );
