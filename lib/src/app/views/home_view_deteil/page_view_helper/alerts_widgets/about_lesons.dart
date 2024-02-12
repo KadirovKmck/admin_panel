@@ -1,6 +1,8 @@
+import 'package:admin_panel/src/app/views/home_view.dart';
 import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/alerts_widgets/about_lesson_pay_ment.dart';
 import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/alerts_widgets/info_first_alert.dart';
 import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/alerts_widgets/info_second_alert.dart';
+import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/alerts_widgets/info_therd_alert.dart';
 import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/alerts_widgets/text_about_lessons.dart';
 import 'package:flutter/material.dart';
 
@@ -60,7 +62,8 @@ class _AboutLessonState extends State<AboutLesson> {
                                   context: context,
                                   builder: (BuildContext context) =>
                                       SingleChildScrollView(
-                                          child: AlertSecond(context)),
+                                          child: AlertDialogForTimeLesson(
+                                              context)),
                                 );
                               },
                               child: Container(
@@ -126,26 +129,57 @@ class _AboutLessonState extends State<AboutLesson> {
       backgroundColor: Colors.white,
       icon: const InfoFirstAlert(),
       actions: <Widget>[
-        InkWell(
-          onTap: () {
-            showDialog<String>(
-              context: context,
-              builder: (BuildContext context) => AlertSecond(context),
-            );
-          },
-          child: Container(
-              height: 40,
-              width: 100,
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: const Center(
-                child: Text(
-                  'Next',
-                  style: TextStyle(color: Colors.white),
+        Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 430),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Container(
+                  height: 40,
+                  width: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Back',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
                 ),
-              )),
+              ),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            InkWell(
+              onTap: () {
+                showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) =>
+                      SingleChildScrollView(child: AlertSecond(context)),
+                );
+              },
+              child: Container(
+                height: 40,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Next',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
@@ -160,22 +194,128 @@ class _AboutLessonState extends State<AboutLesson> {
           child: Column(
             children: [
               const InfoSeconAlert(),
-              InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 40,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: const Center(
-                    child: Text(
-                      'Next',
-                      style: TextStyle(color: Colors.white),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 430),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        height: 40,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Back',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      showDialog<String>(
+                        context: context,
+                        builder: (BuildContext context) => AlertTherd(context),
+                      );
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Next',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  AlertDialog AlertTherd(BuildContext context) {
+    return AlertDialog(
+      backgroundColor: Colors.white,
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              const InfoTherdAlert(),
+              const SizedBox(
+                height: 15,
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 430),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Container(
+                        height: 40,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Back',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const HomeView(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: const Center(
+                        child: Text(
+                          'Done',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

@@ -311,15 +311,94 @@ class _InfoSeconAlertState extends State<InfoSeconAlert> {
           const SizedBox(
             height: 15,
           ),
-          const SizedBox(
+          SizedBox(
             height: 50,
             width: 500,
             child: Row(
               children: [
-                PoputWidgetInOverviewAlert(),
+                Container(
+                  color: Colors.black,
+                  height: 50,
+                  width: 200,
+                  child: const Center(
+                    child: Text(
+                      'Notifikation',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                const Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Minuts',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+                Container(
+                  color: Colors.black,
+                  height: 50,
+                  width: 200,
+                  child: const Center(
+                    child: Text(
+                      'Minutes bifore',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
-          )
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Text('Email notifications only work with Google Calendar.'),
+          const SizedBox(
+            height: 25,
+          ),
+          const Text(
+            'End date',
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          const SizedBox(
+            height: 100,
+            width: 500,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Choose end date',
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black,
+                  ),
+                ),
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'MM/DD/YYYY',
+                      suffixIcon: Icon(Icons.calendar_month),
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
         ],
       ),
     );
@@ -447,62 +526,5 @@ class DailyWidgets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox();
-  }
-}
-
-class PoputWidgetInOverviewAlert extends StatelessWidget {
-  const PoputWidgetInOverviewAlert({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 35,
-      width: 100,
-      child: PopupMenuButton<String>(
-        color: Colors.white,
-        offset: const Offset(240, 40),
-        constraints: const BoxConstraints.expand(
-          width: 204,
-          height: 50,
-        ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20),
-        ),
-        tooltip: '',
-        icon: Container(
-          height: 35,
-          width: 100,
-          color: Colors.amber,
-          child: const Text('Уводемледие'),
-        ),
-        onSelected: (value) {},
-        itemBuilder: (BuildContext context) {
-          return [
-            PopupMenuItem(
-              height: 5,
-              value: 'item1',
-              child: GestureDetector(
-                onTap: () {
-                  // _launchUrl(context, index);
-                },
-                child: RichText(
-                  text: const TextSpan(
-                    children: [
-                      TextSpan(
-                        text: 'Электронная Почта',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Color(0xff000000),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ];
-        },
-      ),
-    );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/page_helppers_deteil/overview.dart';
 import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/page_helppers_deteil/announ_cements.dart';
-import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/page_helppers_deteil/learning_tool.dart';
-import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/page_helppers_deteil/reviews.dart';
+import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/page_helppers_deteil/learning_view/learning_tool.dart';
+import 'package:admin_panel/src/app/views/home_view_deteil/page_view_helper/page_helppers_deteil/review_view/reviews.dart';
 import 'package:flutter/material.dart';
 
 class TabBarViews extends StatelessWidget {
